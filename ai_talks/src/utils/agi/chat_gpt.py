@@ -1,11 +1,15 @@
 from typing import List  # NOQA: UP035
 import torch
 #import torchvision
-
+# Import the pipeline class from the transformers library
+from transformers import pipeline
 import streamlit as st
 from peft import PeftModel, PeftConfig
 from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig, pipeline
 
+
+# Get the huggingface token from the streamlit secrets
+huggingface_token = st.secrets["huggingface_token"]
 # Define the model name and some constants
 MODEL_NAME = "IlyaGusev/saiga2_13b_lora"
 DEFAULT_MESSAGE_TEMPLATE = "<s> {role}\n {content}</s>\n"
@@ -26,11 +30,9 @@ model.eval()
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, use_fast=False)
 generation_config = GenerationConfig.from_pretrained(MODEL_NAME)
 
-# Import the pipeline class from the transformers library
-from transformers import pipeline
 
-# Get the huggingface token from the streamlit secrets
-huggingface_token = st.secrets["huggingface_token"]
+
+
 
 # Create a pipeline object with the model name and the token
 model = pipeline("text-generation", model=MODEL_NAME, api_key=huggingface_token)
