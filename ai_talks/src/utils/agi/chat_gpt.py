@@ -1,6 +1,6 @@
 from typing import List  # NOQA: UP035
 import torch
-import torchvision
+#import torchvision
 
 import streamlit as st
 from peft import PeftModel, PeftConfig
