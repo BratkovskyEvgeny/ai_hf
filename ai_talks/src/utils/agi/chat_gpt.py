@@ -11,7 +11,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig, 
 # Get the huggingface token from the streamlit secrets
 huggingface_token = st.secrets["huggingface_token"]
 # Define the model name and some constants
-MODEL_NAME = "IlyaGusev/saiga2_13b_lora"
+MODEL_NAME = "IlyaGusev/saiga_mistral_7b_lora"
 DEFAULT_MESSAGE_TEMPLATE = "<s> {role}\n {content}</s>\n"
 DEFAULT_SYSTEM_PROMPT = "Ты — Сайга, русскоязычный автоматический ассистент. Ты разговариваешь с людьми и помогаешь им."
 START_TOKEN_ID = 1
